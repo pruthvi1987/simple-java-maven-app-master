@@ -9,9 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 stages:
-- stage: Build-Package
+- stage: Build_Package
   jobs:
-  - job: build-package
+  - job: build_package
     steps:
     - task: Maven@3
       inputs:
@@ -40,10 +40,10 @@ stages:
         PathtoPublish: '$(build.artifactstagingdirectory)'
         ArtifactName: package
       condition: succeededOrFailed()
-- stage: Build-Image
-  dependsOn: Build-Package
+- stage: Build_Image
+  dependsOn: Build_Package
   jobs:
-  - job: build-image
+  - job: build_image
     steps:
     - download: current
       artifact: package
