@@ -42,12 +42,12 @@ stages:
       condition: succeededOrFailed()
       
     - task: Docker@2
-     displayName: buildAndPush
-     inputs:
-       containerRegistry: 'Azure Container Registry'
-       repository: azcoderegistry
-       Dockerfile: '$(build.artifactstagingdirectory)/Dockerfile'
-       buildContext: '$(build.artifactstagingdirectory)/target'
+      displayName: buildAndPush
+      inputs:
+        containerRegistry: 'Azure Container Registry'
+        repository: azcoderegistry
+        Dockerfile: '$(build.artifactstagingdirectory)/Dockerfile'
+        buildContext: '$(build.artifactstagingdirectory)/target'
    
       
     
